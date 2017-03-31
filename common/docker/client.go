@@ -118,10 +118,29 @@ func (c *Client) AddObserver(ob ContainerObserver) error {
 						pending.finish(event.ID)
 						ob.ContainerDestroyed(event.ID)
 					case "network:connect":
+						// TODO: Remove
+						common.Log.Infof("[event] %s", event)
+						common.Log.Infof("[action] %s", event.Action)
+						common.Log.Infof("[type] %s", event.Type)
+						common.Log.Infof("[actor.id] %s" event.Actor.ID)
+						common.Log.Infof("[actor.attrs] %s", event.Actor.Attributes)
+						common.Log.Infof("[status] %s", event.Status)
+						common.Log.Infof("[ID] %s", event.ID)
+						common.Log.Infof("[from] %s", event.From)
+
 						if containerID, ok := event.Actor.Attributes["container"]; ok {
 							ob.ContainerConnected(containerID)
 						}
 					case "network:disconnect":
+						// TODO: Remove
+						common.Log.Infof("[event] %s", event)
+						common.Log.Infof("[action] %s", event.Action)
+						common.Log.Infof("[type] %s", event.Type)
+						common.Log.Infof("[actor.id] %s" event.Actor.ID)
+						common.Log.Infof("[actor.attrs] %s", event.Actor.Attributes)
+						common.Log.Infof("[status] %s", event.Status)
+						common.Log.Infof("[ID] %s", event.ID)
+						common.Log.Infof("[from] %s", event.From)
 						if containerID, ok := event.Actor.Attributes["container"]; ok {
 							ob.ContainerDisconnected(containerID)
 						}
