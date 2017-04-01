@@ -25,6 +25,7 @@ const (
 type network struct {
 	isOurs            bool
 	hasMulticastRoute bool
+	netIP             string
 }
 
 type driver struct {

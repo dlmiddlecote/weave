@@ -378,8 +378,8 @@ func (alloc *Allocator) ContainerStarted(ident string) {
 	}
 }
 
-func (alloc *Allocator) ContainerConnected(ident string)    {}
-func (alloc *Allocator) ContainerDisconnected(ident string) {}
+func (alloc *Allocator) ContainerConnected(ident, networkID string)    {}
+func (alloc *Allocator) ContainerDisconnected(ident, networkID string) {}
 
 func (alloc *Allocator) PruneOwned(ids []string) {
 	idmap := make(map[string]struct{}, len(ids))

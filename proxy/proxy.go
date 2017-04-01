@@ -478,8 +478,9 @@ func (proxy *Proxy) waitForStartByIdent(ident string) error {
 
 func (proxy *Proxy) ContainerDied(ident string)         {}
 func (proxy *Proxy) ContainerDestroyed(ident string)    {}
-func (proxy *Proxy) ContainerConnected(ident string)    {}
-func (proxy *Proxy) ContainerDisconnected(ident string) {}
+
+func (proxy *Proxy) ContainerConnected(ident, networkID string)    {}
+func (proxy *Proxy) ContainerDisconnected(ident, networkID string) {}
 
 // Check if this container needs to be attached, if so then attach it,
 // and return nil on success or not needed.

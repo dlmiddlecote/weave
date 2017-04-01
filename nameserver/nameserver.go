@@ -124,8 +124,8 @@ func (n *Nameserver) ReverseLookup(ip address.Address) (string, error) {
 func (n *Nameserver) ContainerStarted(ident string)   {}
 func (n *Nameserver) ContainerDestroyed(ident string) {}
 
-func (n *Nameserver) ContainerConnected(ident string)    {}
-func (n *Nameserver) ContainerDisconnected(ident string) {}
+func (n *Nameserver) ContainerConnected(ident, networkID string)    {}
+func (n *Nameserver) ContainerDisconnected(ident, networkID string) {}
 
 func (n *Nameserver) ContainerDied(ident string) {
 	n.Lock()
